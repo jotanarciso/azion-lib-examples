@@ -6,7 +6,7 @@ const getDatabase = async (client) => {
   if (!db) {
     db = await client.sql.createDatabase(dbName);
   } else {
-    db = await client.sql.getDatabaseById(db.id);
+    db = await client.sql.getDatabase(db.id);
   }
 
   const createTableQuery = 'CREATE TABLE IF NOT EXISTS users (id INT PRIMARY KEY, name VARCHAR(100));';

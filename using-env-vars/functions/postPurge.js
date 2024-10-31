@@ -5,7 +5,7 @@ const postPurge = async (type, urls) => {
     const urlList = urls ? urls.split('\n').filter(url => url.trim() !== '') : [];
     
     if (urlList.length === 0) {
-      throw new Error('Nenhuma URL válida fornecida');
+      throw new Error('No valid URL provided');
     }
 
     let result;
@@ -20,11 +20,11 @@ const postPurge = async (type, urls) => {
         result = await purgeWildCard(urlList);
         break;
       default:
-        throw new Error('Tipo de purge inválido');
+        throw new Error('Invalid purge type');
     }
     return result;
   } catch (error) {
-    console.error('Erro ao executar purge:', error);
+    console.error('Error executing purge:', error);
     return { error: error.message };
   }
 };

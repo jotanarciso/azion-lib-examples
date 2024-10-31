@@ -5,7 +5,7 @@ const getStorageExample = async (client) => {
 
   const buckets = await client.storage.getBuckets();
 
-  let bucket = await client.storage.getBucketByName(testBucketName);
+  let bucket = await client.storage.getBucket(testBucketName);
   if (!bucket) {
     bucket = await client.storage.createBucket(testBucketName, "read_write");
   }

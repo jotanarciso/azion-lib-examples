@@ -1,6 +1,6 @@
-import { createDatabase, getDatabases, getDatabaseById } from 'azion/sql';
+import { createDatabase, getDatabases, getDatabase } from 'azion/sql';
 
-const getDatabase = async () => {
+const getDatabaseMethod = async () => {
   const dbName = 'my-database';
   const dbs = await getDatabases();
 
@@ -8,7 +8,7 @@ const getDatabase = async () => {
   if (!db) {
     db = await createDatabase(dbName);
   } else {
-    db = await getDatabaseById(db.id);
+    db = await getDatabase(db.id);
   }
 
   const tableQuery = 'CREATE TABLE IF NOT EXISTS users (id INT PRIMARY KEY, name VARCHAR(100));';
@@ -31,4 +31,4 @@ const getDatabase = async () => {
   };
 };
 
-export default getDatabase;
+export default getDatabaseMethod;

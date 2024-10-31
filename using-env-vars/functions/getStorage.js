@@ -1,4 +1,4 @@
-import { createBucket, deleteBucket, getBucketByName, getBuckets } from 'azion/storage';
+import { createBucket, deleteBucket, getBucket, getBuckets } from 'azion/storage';
 
 const demonstrateStorageOperations = async () => {
   const bucketName = 'my-example-bucket';
@@ -11,7 +11,7 @@ const demonstrateStorageOperations = async () => {
   console.log('Existing buckets:', allBuckets);
 
   // Get or create the bucket
-  let bucket = await getBucketByName(bucketName);
+  let bucket = await getBucket(bucketName);
   if (!bucket) {
     console.log(`Creating new bucket: ${bucketName}`);
     bucket = await createBucket(bucketName, 'read_write');
